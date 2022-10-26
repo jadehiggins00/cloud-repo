@@ -98,6 +98,7 @@ function AddItemForm({ onNewItem }) {
                     type="text"
                     placeholder="New Item"
                     aria-describedby="basic-addon1"
+			readOnly={true}
                 />
                 <InputGroup.Append>
                     <Button
@@ -118,7 +119,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {
-        fetch(`/items/${item.id}`, {
+		        fetch(`/items/${item.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: item.name,
